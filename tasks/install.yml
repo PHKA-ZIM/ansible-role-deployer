@@ -1,0 +1,15 @@
+---
+- name: Install deployer
+  become: true
+  ansible.builtin.get_url:
+    url: "{{ deployer_url }}"
+    dest: "{{ deployer_path }}/deployer.phar"
+    mode: "{{ deployer_file_mode }}"
+    force: "{{ deployer_update | bool }}"
+
+- name: Symlink deployer.phar
+  become: true
+  ansible.builtin.file:
+    src: "{{ deployer_path }}/deployer.phar"
+    dest: "{{ deployer_path }}/dep"
+    state: link

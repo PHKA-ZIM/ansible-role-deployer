@@ -1,0 +1,12 @@
+---
+- name: Install deployer
+  when: deployer_uninstall == false
+  block:
+    - name: Install
+      ansible.builtin.include_tasks: install.yml
+
+- name: Uninstall deployer
+  when: deployer_uninstall == true
+  block:
+    - name: Uninstall
+      ansible.builtin.include_tasks: uninstall.yml

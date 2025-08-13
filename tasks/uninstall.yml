@@ -1,0 +1,12 @@
+---
+- name: Remove symlink
+  become: true
+  ansible.builtin.file:
+    path: "{{ deployer_path }}/dep"
+    state: absent
+
+- name: Uninstall deployer
+  become: true
+  ansible.builtin.file:
+    path: "{{ deployer_path }}/deployer.phar"
+    state: absent

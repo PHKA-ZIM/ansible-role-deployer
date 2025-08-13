@@ -1,0 +1,4 @@
+---
+deployer_url: "https://deployer.org/releases/{{deployer_version}}/deployer.phar"
+deployer_path: /usr/local/bin/
+deployer_file_mode: 0755
